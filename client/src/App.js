@@ -7,7 +7,7 @@ import FormPost from'./components/FormPost'
 function App() {
   return (
     <div className="App">
-     <h1>Welcome to my App</h1>
+     <h1 className="header">Welcome to my App</h1>
      <FormPost />
     </div>
   );
