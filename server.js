@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 const route = require('./routes/api.js')
 
 
-//const MONGODB_URI = "mongodb+srv://ignatius:ignatius22@cluster0-jv3ir.mongodb.net/test?retryWrites=true&w=majority"
+const MONGODB_URI = "mongodb+srv://ignatius:ignatius22@cluster0-jv3ir.mongodb.net/test?retryWrites=true&w=majority"
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_post',{
+mongoose.connect(process.env.MONGODB_URI || /*'mongodb://localhost/mern_post'*/ MONGODB_URI,{
     useNewUrlParser:true,
     useUnifiedTopology: true
 });
