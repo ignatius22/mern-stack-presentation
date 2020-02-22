@@ -67,11 +67,15 @@ resetUserInput = () => {
         if(!posts.length) return null
 
        return posts.map((post,index)=>(
-        <div key={index} className="display_post">
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-            <h5>author: {post.author}</h5>
-        </div>
+        <div>
+            <div key={index} className="card border border-none shadow p-3 mb-5 bg-white rounded" style={{width:800, position:"relative",left:200}}>
+                <div className="card-body">
+                    <h5 className="card-title badge badge-primary text-wrap mx-auto" style={{width:"200px",position:"relative",left:300}} >{post.title}</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">{post.author}</h6>
+                    <p className="card-text text-primary">{post.body}</p>
+                </div>
+            </div>
+            </div>
 
         ))
     }
@@ -82,22 +86,41 @@ resetUserInput = () => {
         return (
             <div>            
                <div className="App">
+               <div className="badge badge-success text-wrap" style={{width: "30rem", position:"relative",bottom:"10px"}}>
+                    welcome, write your first quote
+                </div>
                     <form onSubmit={this.submit}>
-                        <div className="col-75">
-                        <input type="text" name="title" placeholder="Post Title.." value={this.state.title} onChange={this.handleChange} required/>
+                        <div className="form-group">
+                        <input type="text"
+                        className="form-control"
+                         name="title" 
+                         placeholder="Post Title.." 
+                         value={this.state.title} 
+                         onChange={this.handleChange} 
+                         required/>
                     </div>
-                        <div className="col-75">
-                        <textarea  placeholder="Write something.." name="body" value={this.state.body} onChange={this.handleChange}></textarea>
+                        <div className="form-group">
+                        <textarea  placeholder="Write something.." 
+                        className="form-control"
+                        name="body" value={this.state.body} 
+                        onChange={this.handleChange}
+                        />
                         </div>
-                        <div className="col-75">
-                        <input type="text"  name="author" placeholder="Author.."  value={this.state.author} onChange={this.handleChange} required/>
+                        <div className="form-group">
+                        <input type="text"
+                        className="form-control"  
+                        name="author" 
+                        placeholder="Author.."  
+                        value={this.state.author} 
+                        onChange={this.handleChange}
+                        required/>
                         </div>
-                        <button>submit</button>
+                        <button className="btn btn-primary">submit</button>
                     </form>
                     </div>
                    
 
-               <div>
+               <div className="container" className="shadow-none p-3 mb-5 bg-light rounded" style={{position:"relative",top:40}}>
                 {this.displayBlogPost(this.state.posts)}
                 </div>
             </div>
