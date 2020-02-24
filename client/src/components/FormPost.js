@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-//import {Card} from 'react-bootstrap'
-import '../App.css';
 import axios from 'axios'
 
 class FormPost extends Component {
@@ -68,9 +66,9 @@ resetUserInput = () => {
 
        return posts.map((post,index)=>(
         <div>
-            <div key={index} className="card border border-none shadow p-3 mb-5 bg-white rounded" style={{width:800, position:"relative",left:200}}>
+            <div key={index} className="card border border-none shadow p-3 mb-5 bg-white rounded" >
                 <div className="card-body">
-                    <h5 className="card-title badge badge-primary text-wrap mx-auto" style={{width:"200px",position:"relative",left:300}} >{post.title}</h5>
+                    <h5 className="card-title badge badge-primary text-wrap mx-auto"  >{post.title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{post.author}</h6>
                     <p className="card-text text-primary">{post.body}</p>
                 </div>
@@ -86,7 +84,7 @@ resetUserInput = () => {
         return (
             <div>            
                <div className="App">
-               <div className="badge badge-success text-wrap" style={{width: "30rem", position:"relative",bottom:"10px"}}>
+               <div className="badge badge-success text-wrap" >
                     welcome, write your first quote
                 </div>
                     <form onSubmit={this.submit}>
