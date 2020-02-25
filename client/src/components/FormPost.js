@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Alert} from 'react-bootstrap'
 
 class FormPost extends Component {
     state = {
@@ -22,7 +23,21 @@ class FormPost extends Component {
             console.log('data has been recieved')
         })
         .catch(()=>{
-            alert('Error retrieving data')
+
+           return (<Alert variant="warning">
+            <Alert.Heading>Hey, nice to see you</Alert.Heading>
+            <p>
+             Something went wrong , Error retrieving data
+            </p>
+            <hr />
+            <p className="mb-0">
+              Whenever you need to, be sure to use margin utilities to keep things nice
+              and tidy.
+            </p>
+          </Alert>
+)
+
+            
         })
     }
 
