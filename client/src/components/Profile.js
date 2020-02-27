@@ -9,7 +9,8 @@ export class Profile extends Component {
         this.state = {
              first_name:"",
              last_name:"",
-             email:""
+             email:"",
+             errors:{}
         }
     }
     

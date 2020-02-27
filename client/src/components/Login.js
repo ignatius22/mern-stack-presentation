@@ -8,6 +8,7 @@ export class Login extends Component {
         this.state = {
              email:"",
              password:"",
+             error:{}
         }
 
         this.onChange = this.onChange.bind(this)
@@ -64,7 +65,11 @@ export class Login extends Component {
                                 Sign In
                             </button>
                         </form>
+                        <div className="container">
+                        <a href="/register">need an account</a>
+                        </div>
                     </div>
+                   
                 </div>
                 
             </div>

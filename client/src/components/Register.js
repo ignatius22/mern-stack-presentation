@@ -11,7 +11,8 @@ import {register} from './UserFunction'
             first_name:"",
             last_name:"",
             email:"",
-            password:""
+            password:"",
+            errors:{}
         }
 
        
@@ -90,6 +91,7 @@ import {register} from './UserFunction'
                                 Register
                             </button>
                         </form>
+                        <a href="/login" >already got an account?</a>
                     </div>
                 </div>
                 
