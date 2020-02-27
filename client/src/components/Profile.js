@@ -34,11 +34,9 @@ export class Profile extends Component {
                 </div>
 
 
-                <ul className="list-group">
-                    <li className="list-group-item">{this.state.first_name}</li>
-                    <li className="list-group-item">{this.state.last_name}</li>
-                    <li className="list-group-item">{this.state.email}</li>
-                </ul>
+               <div>
+                   {this.state.first_name}
+               </div>
                 <FormPost />
             </div>
         </div>

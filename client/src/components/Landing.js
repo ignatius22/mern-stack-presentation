@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import FormPost from './FormPost'
+
 
 class Landing extends Component {
     render() {
