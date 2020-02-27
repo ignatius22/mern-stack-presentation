@@ -1,29 +1,76 @@
-import React from 'react'
-import {Navbar,Nav,NavDropdown} from 'react-bootstrap'
+import React, { Component } from 'react'
+import {Link , withRouter} from 'react-router-dom'
 
-function TopNav() {
-    return (
-        <div>
-            <Navbar bg="dark" variant="dark" fixed="top">
-                <Navbar.Brand href="#home">Soul Food</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    </Nav>
-                    
-                </Navbar.Collapse>
-            </Navbar>
-        </div>
-    )
+class TopNav extends Component {
+    logOut(e){
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }
+
+
+
+
+
+    render() {
+        const loginRegLink =(
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link">
+                        Login
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <Link to="/register" className="nav-link">
+                        Register
+                    </Link>
+                </li>
+            </ul>
+        )
+        
+        const userLink =(
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link to="/profile" className="nav-link">
+                        User
+                    </Link>
+                </li>
+
+                <li className="nav-item">
+                    <a href="" className="nav-link" onClick={this.logOut.bind(this)}>
+                        LogOut
+                    </a>
+                </li>
+            </ul>
+        )
+
+        return (
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+                <button className="navbar-toggler"
+                 type="button" 
+                 data-toggle="collapse" 
+                 data-target="#navbar1" 
+                 aria-controls="navbar1" 
+                 aria-expanded="false" 
+                 aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div className="collapse navbar-collapse justify-content-md-center" id="navbar1">
+                    <ul className="navbar-nav">
+                        <li className="nav-item active">
+                            <Link to="/" className="nav-link">
+                                Home
+                            </Link>
+                        </li>
+                    </ul>
+                    {localStorage.usertoken ? userLink : loginRegLink}
+                </div>
+            </nav>
+        )
+    }
 }
 
-export default TopNav
+export default  withRouter(TopNav)

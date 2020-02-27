@@ -1,31 +1,28 @@
 import React from 'react';
-import './App.css';
-//import FormPost from'./components/FormPost'
-import Jumbotron from'./components/Jumbotron'
-import Layout from'./components/Layout'
-import CarouseView from './components/CarouseView'
-import TopNav from './components/TopNav'
-import FooteR from './components/FooteR'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import {Container} from 'react-bootstrap'
-
+import {BrowserRouter as Router, Route } from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css"
+import Landing from './components/Landing';
+import TopNav from './components/TopNav';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Register from './components/Register';
 
 
 function App() {
   return (
-    <div className="App">
-      <TopNav/>
-      <CarouseView />
-      <Jumbotron />
-      <Layout />
-      <Container>
-      <FooteR />
-      </Container>
-      
-      
-      
-      
-    </div>
+
+    <Router>
+         <div className="App">
+           <TopNav />
+           <Route exact path='/' component={Landing} />
+           <div className="container">
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/profile' component={Profile} />
+           </div>
+        </div>
+    </Router>
+  
   );
 }
 
